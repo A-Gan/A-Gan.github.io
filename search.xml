@@ -3,7 +3,42 @@
   <entry>
     <title>test</title>
     <url>/2020/03/03/test/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title="##"></a>##</h2><p>“##” 一级标签</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title="###"></a>###</h3><p>“###” 二级标签</p>
+<h2 id="主页概略"><a href="#主页概略" class="headerlink" title="主页概略"></a>主页概略</h2><p>阅读全文选项</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h2 id="添加代码块"><a href="#添加代码块" class="headerlink" title="添加代码块"></a>添加代码块</h2><p>功能在hexo配置文件中开启</p>
+<p>按顺序实现<br>[lang:language] - 哪种语言<br>[title] - 代码上方加一行字.<br>[url] - 代码下载地址<br>[link text] - 下载地址文字</p>
+<p>start:# - Line numbers begin at # (useful for using snippets to reference longer code).<br>mark:#,#-# - Mark one or more lines of code with the class name “marked”. Accepts one number, numbers separated by commas, and number ranges. Example mark:1,5-8 will mark lines 1,5,6,7,8. Note: If you’ve changed the beginning line number be sure these match rendered line numbers<br>linenos:false - Do not add line numbers to highlighted code.</p>
+<h3 id="格式1"><a href="#格式1" class="headerlink" title="格式1"></a>格式1</h3><p>去掉中括号</p>
+<figure class="highlight html"><figcaption><span>标题</span><a href="https://baidu.com" target="_blank" rel="noopener">下载代码链接 linenos:false</a></figcaption><table><tr><td class="code"><pre><span class="line">[```][language] [title] [url] [link text]</span><br><span class="line">    内容</span><br><span class="line">[```]</span><br></pre></td></tr></table></figure>
+
+<h3 id="格式2"><a href="#格式2" class="headerlink" title="格式2"></a>格式2</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock [lang:language] [title] [url] [link text] %&#125;</span><br><span class="line">    内容</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<p>参考点击<a href="http://octopress.org/docs/plugins/codeblock/" target="_blank" rel="noopener">例子</a></p>
+<h3 id="复制功能"><a href="#复制功能" class="headerlink" title="复制功能"></a>复制功能</h3><p>在next主题配置文件中开启</p>
+<h2 id="创建链接文字"><a href="#创建链接文字" class="headerlink" title="创建链接文字"></a>创建链接文字</h2><p>格式：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">文字</span>](<span class="link">url</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html" target="_blank" rel="noopener">Welcome to Island Marketing</a></cite></footer></blockquote>
+
+<h2 id="文章中插入图片"><a href="#文章中插入图片" class="headerlink" title="文章中插入图片"></a>文章中插入图片</h2><h3 id="绝对路径本地引用"><a href="#绝对路径本地引用" class="headerlink" title="绝对路径本地引用"></a>绝对路径本地引用</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(/images/avatar.jpg)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/bg-2.jpg" alt=""></p>
+<h3 id="相对路径本地引用"><a href="#相对路径本地引用" class="headerlink" title="相对路径本地引用"></a>相对路径本地引用</h3><p>设置hexo配置文件的post_asset_folder<br>之后新建文章时会生成同名文件夹 图片放在这个文件夹中就可以直接用图片名引用</p>
+<p>缺点是在首页图片显示不出来</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(<span class="selector-tag">avatar</span><span class="selector-class">.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="标签插件语法引用"><a href="#标签插件语法引用" class="headerlink" title="标签插件语法引用"></a>标签插件语法引用</h3>
+
+<h3 id="网络图片引用"><a href="#网络图片引用" class="headerlink" title="网络图片引用"></a>网络图片引用</h3><figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">&lt;img <span class="keyword">class</span>=<span class="string">"url 宽 高 图片下方名称"</span>&gt;</span><br></pre></td></tr></table></figure>
+<img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" class="" width="200" height="400" title="name">]]></content>
       <categories>
         <category>test</category>
       </categories>
@@ -15,15 +50,19 @@
     <title>Hello World</title>
     <url>/2020/03/03/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <a id="more"></a>
 
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
   </entry>
